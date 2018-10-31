@@ -2,7 +2,7 @@ from query_block_validation import exception_test
 with open("exception_li", "rt", encoding = "utf-8") as f:
 		exception_list = list(f)
 # print(exception_test(get_search_result_url("令计划"), exception_list))
-with open("cache", "rt", encoding = "utf-8") as e:
+with open("query", "rt", encoding = "utf-8") as e:
 	query_list = []
 	for q in e:
 		query_list.append(q.strip())
@@ -23,7 +23,11 @@ for query in query_list:
 print("failed_list", len(failed_list))
 print("succeeded_list", len(succeeded_list))
 print("noresult_list", len(noresult_list))
-with open("failed_list2.txt", "wt", encoding = "utf-8") as fl:
+with open("failed_list.txt", "wt", encoding = "utf-8") as fl:
 	for query in failed_list:
 		fl.write(query + "\n")
+
+with open("noresult_list.txt", "wt", encoding = "utf-8") as f2:
+	for query in noresult_list:
+		f2.write(query + "\n")
 

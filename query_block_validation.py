@@ -65,14 +65,15 @@ def extract_domain(url):
 	return domain_name
 
 def exception_test(query, exception_list = exception_list):
+	# 1 ::= noresult	2 ::= failed 		3 ::= success
 	url_list = get_search_result_url(query)
 	if url_list == 0:
-		return "no_result"
+		return 1
 	for url in url_list:
 		domain_name = extract_domain(url) + "\n"
 		if domain_name not in exception_list:
-			return domain_name
-	return True
+			return 2
+	return 3
 
 
 if __name__ == "__main__":
