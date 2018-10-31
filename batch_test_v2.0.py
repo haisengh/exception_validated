@@ -2,7 +2,7 @@ from query_block_validation import exception_test
 from multiprocessing import Pool
 
 def get_query_list(file):
-	with open(file,"rt") as f:
+	with open(file, "rt", encoding = "utf-8") as f:
 		query_list = [query.strip() for query in list(f)]
 	return query_list
 
@@ -31,10 +31,10 @@ def main():
 		elif result[1] == 1:
 			noresult_list.append(result[0])
 
-	with open(failed_list_file, "wt") as fail:
+	with open(failed_list_file, "wt", encoding = "utf-8") as fail:
 		for q in failed_list:
 			fail.write(q+"\n")
-	with open(noresult_list_file, "wt") as ns:
+	with open(noresult_list_file, "wt", encoding = "utf-8") as ns:
 		for q in noresult_list:
 			ns.write(q+"\n")
 
